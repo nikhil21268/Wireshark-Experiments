@@ -27,7 +27,7 @@ def compute_avg_signal_strength(pcap_file):
     return avg_signal_strengths
 
 # Usage example:
-file_path = 'first.pcap'  # Change to your pcap file path
+file_path = 'one.pcap'  # Change to your pcap file path
 avg_signals = compute_avg_signal_strength(file_path)
 print("Average Signal Strengths by BSSID:")
 for bssid, avg_signal in avg_signals.items():

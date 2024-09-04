@@ -87,7 +87,7 @@ def extract_beacon_ssids(pcap_file):
     return ssids
 
 # Usage example:
-file_path = 'first.pcap'  # Change to your pcap file path
+file_path = 'one.pcap'  # Change to your pcap file path
 beacon_ssids = extract_beacon_ssids(file_path)
 print("SSIDs found in beacon frames:")
 for ssid in beacon_ssids:
