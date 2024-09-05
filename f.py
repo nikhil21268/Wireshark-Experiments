@@ -179,23 +179,29 @@ from scapy.all import *
 import numpy as np
 
 # MAC addresses for the devices
-D1 = 'b4:b0:24:6d:da:23'  # Access Point
+D1 = 'aa:ba:69:94:d7:95'  # Access Point
 D2 = 'bc:32:b2:8f:f9:75'  # Client
 
 # Load packets from a pcap file
-packets = rdpcap('second.pcap')
+packets = rdpcap('two.pcap')
 print(f"Total packets in file: {len(packets)}")
-
+# print("Printing the first few packets for debugging\n")
 # Filter packets where D1 or D2 is involved
 filtered_packets = []
 for pkt in packets:
     if pkt.haslayer(Dot11):
         # Print details from the first few packets for debugging
-        if len(filtered_packets) < 5:
-            print(f"Addresses in packet: {pkt.addr1}, {pkt.addr2}, {pkt.addr3}")
-        if D1 in [pkt.addr1, pkt.addr2, pkt.addr3] or D2 in [pkt.addr1, pkt.addr2, pkt.addr3]:
-            filtered_packets.append(pkt)
+        # print("Printing the first few packets for debugging\n")
+        # if len(filtered_packets) < 1:
+            # print(f"Addresses in packet: {pkt.addr1}, {pkt.addr2}, {pkt.addr3}")
 
+        # if D1 in [pkt.addr1, pkt.addr2, pkt.addr3] or D2 in [pkt.addr1, pkt.addr2, pkt.addr3]:
+
+        if (pkt.addr1 == D1 and pkt.addr2 == D2) or \
+               (pkt.addr1 == D2 and pkt.addr2 == D1):
+
+            filtered_packets.append(pkt)
+print()
 print(f"Filtered packets involving D1 and D2: {len(filtered_packets)}")
 
 # Initialize lists to hold signal strengths and bitrates

@@ -40,6 +40,8 @@ def analyze_acknowledgments(pcap_file):
     last_frame_type_per_transmitter = {}
     acked_frames = Counter()
 
+    bitrates = []
+
     for packet in packets:
         if packet.haslayer(Dot11):
             if packet.type == 1 and packet.subtype == 0xD:
@@ -49,6 +51,9 @@ def analyze_acknowledgments(pcap_file):
                     frame_desc = last_frame_type_per_transmitter[ra]
                     acked_frames[frame_desc] += 1
                     bitrate = packet.getlayer(RadioTap).Rate if packet.haslayer(RadioTap) else 'Unknown'
+                    if bitrate != 'Unknown':
+                        bitrates.append(bitrate)
+
                     print(f"ACK Frame for {frame_desc}: {packet.summary()}, Bitrate: {bitrate} Mbps")
             else:
                 # Track the last non-ACK frame per transmitter
@@ -61,7 +66,14 @@ def analyze_acknowledgments(pcap_file):
     for frame_type, count in acked_frames.items():
         print(f"Type {frame_type}: {count} times")
 
+    # Compute and print the average bitrate of ACK frames
+    if bitrates:
+        average_bitrate = sum(bitrates) / len(bitrates)
+        print(f"Average Bitrate of ACK frames: {average_bitrate} Mbps")
+    else:
+        print("No valid bitrates found to compute average.")
+
 # Usage example:
-file_path = 'first.pcap'  # Replace with your pcap file path
+file_path = 'one.pcap'  # Replace with your pcap file path
 analyze_acknowledgments(file_path)
 

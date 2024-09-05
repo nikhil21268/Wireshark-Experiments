@@ -5,7 +5,7 @@ INTERFACE="wlp0s20f3"
 
 
 # Create a file to store your data
-OUTPUT_FILE="wireless_data.csv"
+OUTPUT_FILE="wireless_moving_data.csv"
 # echo "Time,SSID,BSSID,Signal Level,Bit Rate" > $OUTPUT_FILE
 echo "Time,SSID,BSSID,Signal Level,Bit Rate,Transmission Power,Frequency Band" > $OUTPUT_FILE
 

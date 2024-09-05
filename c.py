@@ -27,6 +27,8 @@ def compute_avg_bitrate(pcap_file):
                 rates = rates_element.info
                 # Convert rates from a bytes object to a list of integers
                 rates = [rate // 2 for rate in rates]  # Divide by 2 to convert from 500kbps units to Mbps
+                # print(rates)
+                # print('\n')
                 rates_dict[bssid].extend(rates)
     """
     print("printing dict for fun")
