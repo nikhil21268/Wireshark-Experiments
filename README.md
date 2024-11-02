@@ -1,4 +1,4 @@
-# Wireless Network Analysis Project
+# Wireshark Packet Captures Project
 
 ## Overview
 This project involves a detailed analysis of wireless network parameters such as signal strength, bit rate, transmission power, and frequency bands. The primary objective is to understand how these parameters vary with changes in the environment and device configurations.
