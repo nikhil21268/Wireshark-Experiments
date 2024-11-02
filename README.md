@@ -16,9 +16,9 @@ The results are plotted and analyzed to show how wireless network parameters are
 
 ## Screenshots
 
-![1](https://github.com/nikhil21268/ns3-Simulations/blob/main/Screenshots/Screenshot%20from%202024-09-25%2019-32-21.png)
+![1](https://github.com/nikhil21268/Wireshark-Experiments/blob/main/Plots/Figure_1.png)
 
-![2](https://github.com/nikhil21268/ns3-Simulations/blob/main/Screenshots/Screenshot%20from%202024-09-25%2019-33-15.png)
+![2](https://github.com/nikhil21268/Wireshark-Experiments/blob/main/Plots/Figure_2.png)
 
 
 ## Contributing
